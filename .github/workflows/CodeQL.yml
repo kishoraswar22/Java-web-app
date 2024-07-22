@@ -1,0 +1,20 @@
+name: CodeQL SAST scan
+
+on:
+  push: 
+     branches: [main,codeql]
+  pull_request:
+     branches: [main,development, codeql]
+jobs:
+  run_scan:
+     name: 'SAST Scan'
+     uses: kishoraswar22/Java-web-app/.github/workflows/CodeQL.yml@main
+     with:
+        language: "['java','javascript']"
+        build-comamnd: mvn clean install
+        jdk-version: '8'
+        maven-version: '3.8.6'
+        node_version: '20.0'
+        
+          
+     
